@@ -1,16 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using lesson8_handson_aspnet.Models;
 
@@ -28,7 +20,7 @@ namespace lesson8_handson_aspnet
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ToDoItemContext>(opt => opt.UseSqlite("Data Source=ToDoList.db"));
+            services.AddDbContext<TodoItemContext>(opt => opt.UseSqlite("Data Source=TodoItems.db"));
             services.AddControllers();
         }
 
@@ -38,8 +30,6 @@ namespace lesson8_handson_aspnet
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "lesson8_handson_aspnet v1"));
             }
 
             app.UseHttpsRedirection();

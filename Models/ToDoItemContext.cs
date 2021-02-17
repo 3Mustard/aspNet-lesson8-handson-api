@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lesson8_handson_aspnet.Models
 {
-    public class ToDoItemContext : DbContext
+    public class TodoItemContext : DbContext
     {
-        public ToDoItemContext(DbContextOptions<ToDoItemContext> options)
+        public TodoItemContext(DbContextOptions<TodoItemContext> options)
             : base(options)
         {
         }
